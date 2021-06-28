@@ -19,7 +19,7 @@
         }
     },
     "require": {
-        "webpress/core": "^0.1",
+        "webpress/core": "^1.4",
         "artesaos/seotools": "v0.17.2"
     },
     "require-dev": {
