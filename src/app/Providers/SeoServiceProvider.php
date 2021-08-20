@@ -17,6 +17,10 @@ class SeoServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
         $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
+        $this->publishes([
+            __DIR__ . '/../../config/seo.php' => config_path('seo.php'),
+
+        ], 'seo');
     }
 
     /**

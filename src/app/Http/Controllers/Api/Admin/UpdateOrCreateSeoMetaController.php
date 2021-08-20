@@ -19,6 +19,15 @@ class UpdateOrCreateSeoMetaController extends ApiController
     public function __construct(SeoMetaRepository $repository)
     {
         $this->repository = $repository;
+        if (config('seo.auth_middleware.admin.middleware') !== '') {
+            $this->middleware(
+                config('seo.auth_middleware.admin.middleware'),
+                ['except' => config('seo.auth_middleware.admin.except')]
+            );
+        }
+        else{
+            throw new Exception("Admin middleware configuration is required");
+        }
     }
 
     public function __invoke(Request $request)
